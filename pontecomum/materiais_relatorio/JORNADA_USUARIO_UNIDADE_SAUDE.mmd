@@ -1,0 +1,48 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontFamily': 'Arial, sans-serif', 'fontSize': '20px', 'primaryColor': '#eef4f7', 'primaryTextColor': '#172a35', 'primaryBorderColor': '#355d78', 'lineColor': '#52636d', 'secondaryColor': '#fff2db', 'tertiaryColor': '#fff4ef'}}}%%
+flowchart TD
+    A([Início: precisa encontrar informação de saúde]) --> B[Entra no Ponte Comum]
+    B --> C{Como acessar saúde?}
+    C -->|Encontrar atendimento| D[Abre Saúde e escolhe Abrir mapa]
+    C -->|Mapa do bairro| E[Abre o mapa]
+    D --> F[Consulta mapa e lista de pontos]
+    E --> F
+
+    F --> G{Quer usar Perto de mim?}
+    G -->|Não| M[Busca manual por nome, endereço, tipo ou serviço]
+    G -->|Sim| I[Lê aviso: localização usada só neste aparelho, não armazenada]
+    I --> J{Autoriza no navegador?}
+    J -->|Sim| K[Site obtém localização neste aparelho]
+    K --> L[Filtra Saúde e ordena por distância em linha reta; coordenadas aproximadas podem participar]
+    L --> N[Compara os cartões; ordem não é rota nem garante a unidade mais próxima por percurso]
+    J -->|Não / negada| M
+    J -->|Sem suporte / erro| M
+
+    M --> O[Busca, filtra categorias ou alterna mapa e lista]
+    O --> P{Há resultados?}
+    P -->|Não| Q[Tenta outra palavra ou Mostrar todos]
+    Q --> M
+    P -->|Sim| N
+
+    N --> R[Escolhe unidade: Ver detalhes ou Localizar no mapa]
+    R --> S{Status do endereço e do pin}
+    S -->|Confirmado| T[Consulta ficha: endereço, serviços, horário, fontes e ressalvas]
+    S -->|Aproximado| U[Pin é referência, não a entrada exata; conferir antes de sair]
+    S -->|Sem pin / endereço não confirmado| V[Consultar ficha e confirmar endereço com unidade ou SEMUS]
+
+    T --> W{Próximo passo?}
+    U --> W
+    V --> W
+    W -->|Planejar deslocamento| X{Destino geográfico confiável?}
+    X -->|Sim| Y[Abre rota em aplicativo externo]
+    X -->|Não / aproximado| Z[Pesquisa externa por nome/endereço; conferir resultado]
+    W -->|Escolher outra unidade| AA[Volta ao mapa ou à lista]
+    AA --> N
+    Y --> FIM([Fim no site: planejamento segue no app externo])
+    Z --> FIM
+
+    classDef startend fill:#eaf3f7,stroke:#355d78,color:#172a35,stroke-width:2px
+    classDef decision fill:#fff2db,stroke:#f88700,color:#38270c,stroke-width:1.5px
+    classDef caution fill:#fff4ef,stroke:#93190a,color:#38201b,stroke-width:1.5px
+    class A,FIM startend
+    class C,G,J,P,S,W,X decision
+    class U,V,Z caution

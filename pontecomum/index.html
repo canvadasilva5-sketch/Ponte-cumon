@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#355d78">
+  <meta name="description" content="Um mapa comunitário para encontrar serviços de saúde e reconhecer referências históricas e culturais do São Francisco e da Ilhinha, em São Luís (MA).">
+  <title>Ponte Comum — São Francisco e Ilhinha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="styles.css?v=20261123-fundo-inicio">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script defer src="data.js?v=20261122-ubs"></script>
+  <script defer src="app.js?v=20261123-refino"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#/inicio" aria-label="Ponte Comum — início">
+        <img src="/manus-storage/ponte-comum_c0f66e31.png" data-fallback="assets/ponte-comum.png" alt="Ponte Comum">
+      </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle-label">Menu</span><span class="menu-icon" aria-hidden="true">☰</span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#/inicio">Início</a>
+        <a href="#/mapa">Mapa do bairro</a>
+        <a href="#/saude">Saúde</a>
+        <a href="#/historia">História e cultura</a>
+        <a href="#/sobre">O projeto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="#/inicio"><img src="/manus-storage/ponte-comum_c0f66e31.png" data-fallback="assets/ponte-comum.png" alt="Ponte Comum"></a>
+      <p>Informação comunitária sobre saúde, história e cultura do São Francisco e da Ilhinha, em São Luís (MA).</p>
+      <a href="#/sobre">Conheça o projeto e as fontes</a>
+      <small>Horários, serviços, endereços e acessos podem mudar. Confirme as informações diretamente com cada lugar antes de se deslocar.</small>
+      <div class="footer-credit">Mapa base © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · Fotografias do acervo dos autores, conforme relatório enviado.</div>
+    </div>
+  </footer>
+
+  <button class="help-fab" id="help-toggle" type="button" aria-expanded="false" aria-controls="help-panel" aria-label="Abrir ajuda">Ajuda</button>
+  <aside class="help-panel" id="help-panel" hidden aria-labelledby="help-title">
+    <div class="help-heading"><h2 id="help-title">Como podemos ajudar?</h2><button type="button" id="help-close" class="icon-button" aria-label="Fechar ajuda">×</button></div>
+    <details><summary>Como encontro uma unidade?</summary><p>Use a busca e os filtros do mapa. Abra um cartão para ver o endereço e as informações disponíveis; “Como chegar” abre um serviço de mapas.</p></details>
+    <details><summary>Como uso os pontos culturais?</summary><p>Mercado, igreja e referências comunitárias aparecem no mesmo mapa das unidades de saúde. Eles ajudam a reconhecer o território. Endereços aproximados ou ainda não confirmados estão identificados.</p></details>
+    <details><summary>As informações estão completas?</summary><p>Não. Alguns horários, contatos e serviços ainda precisam ser confirmados pela equipe junto às unidades e à comunidade. O site indica essas lacunas ao lado de cada ponto.</p></details>
+    <a class="text-link" href="#/sobre">Ver fontes e limites dos dados</a>
+  </aside>
+</body>
+</html>
